@@ -23,7 +23,7 @@ const Sidebar = () => {
               <p className="recent-title">Recent</p>
               <div className="recent-entry">
                 <img src={assets.message_icon} alt="" />
-                <p>What is React ...</p>
+                <p>What is Gen AI...</p>
               </div>
             </div>
           ) : null}
