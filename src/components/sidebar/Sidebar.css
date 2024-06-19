@@ -33,7 +33,7 @@
   transition: background-color 0.3s ease-in-out, border-radius 0.3s ease-in-out;
 }
 .sidebar .menu:hover{
-  background-color: gray;
+  background-color: #dfe4ea;
   border-radius: 50%;
 }
 
