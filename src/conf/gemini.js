@@ -7,18 +7,17 @@
  * https://ai.google.dev/gemini-api/docs/get-started/node
  */
 
-const {
+import {
   GoogleGenerativeAI,
   HarmCategory,
   HarmBlockThreshold,
-} = require("@google/generative-ai");
+} from "@google/generative-ai";
 
 const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
 const genAI = new GoogleGenerativeAI(apiKey);
 
 const model = genAI.getGenerativeModel({
   model: "gemini-1.5-flash",
-  safetySettings
 });
 
 const generationConfig = {
@@ -40,15 +39,23 @@ const safetySettings = [
   },
 ];
 
-async function run(prompt) {
-  const chatSession = model.startChat({
-    generationConfig,
-    safetySettings,
-    history: [],
-  });
 
-  const result = await chatSession.sendMessage(prompt);
-  console.log(result.response.text());
+
+async function run(prompt) {
+  try {
+    const chatSession = model.startChat({
+      generationConfig,
+      safetySettings,
+      history: [],
+    });
+
+    const result = await chatSession.sendMessage(prompt);
+    //console.log(result.response.text());
+    return result.response.text(); // Return the result so it can be used in the context state
+  } catch (error) {
+    console.error("Error:", error.message);
+    return "An error occurred while fetching the response. Please try again later.";
+  }
 }
 
 export default run;
