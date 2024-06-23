@@ -12,7 +12,14 @@ const Main = () => {
     setInput,
     input,
     onSent,
+    onCardClick
   } = useContext(Context);
+
+   const handleCardClick = (prompt) => {
+     setInput(prompt);
+     onSent(prompt);
+   };
+
   return (
     <div className="main">
       <div className="nav">
@@ -30,19 +37,43 @@ const Main = () => {
               <p>How can I help you today ?</p>
             </div>
             <div className="cards">
-              <div className="card">
+              <div
+                className="card"
+                onClick={() =>
+                  onCardClick(
+                    "Suggest beautiful places to see on an upcoming road trip"
+                  )
+                }
+              >
                 <p>Suggest beautiful places to see on an upcoming road trip</p>
                 <img src={assets.compass_icon} alt="" />
               </div>
-              <div className="card">
+              <div
+                className="card"
+                onClick={() =>
+                  onCardClick("Briefly summarize this concept: urban planning")
+                }
+              >
                 <p>Briefly summarize this concept: urban planning</p>
                 <img src={assets.bulb_icon} alt="" />
               </div>
-              <div className="card">
+              <div
+                className="card"
+                onClick={() =>
+                  onCardClick(
+                    "Brainstorm team bonding activities for our work retreat"
+                  )
+                }
+              >
                 <p>Brainstorm team bonding activities for our work retreat</p>
                 <img src={assets.message_icon} alt="" />
               </div>
-              <div className="card">
+              <div
+                className="card"
+                onClick={() =>
+                  onCardClick("Tell me about React js and React native")
+                }
+              >
                 <p>Tell me about React js and React native</p>
                 <img src={assets.code_icon} alt="" />
               </div>
