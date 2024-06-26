@@ -32,7 +32,8 @@
   border-radius: 50%;
   transition: background-color 0.3s ease-in-out, border-radius 0.3s ease-in-out;
 }
-.sidebar .menu:hover{
+
+.sidebar .menu:hover {
   background-color: #dfe4ea;
   border-radius: 50%;
 }
@@ -54,16 +55,6 @@
   display: flex;
   flex-direction: column;
   animation: fadeIn 2s;
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
 }
 
 .sidebar .recent-title {
@@ -92,4 +83,10 @@
 .sidebar .bottom-item {
   padding-right: 10px;
   cursor: pointer;
+}
+
+@media (max-width:400px) {
+  .sidebar {
+    display: none;
+  }
 }
