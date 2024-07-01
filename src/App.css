@@ -1,0 +1,84 @@
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+}
+
+#dark .main{
+  background-color: #131314;
+}
+
+#dark .main .switch p {
+  color: #e3e3e3;
+}
+
+#dark .main .card{
+  background-color: #1e1f20;
+}
+
+#dark .main .card p {
+  color: #e3e3e3;
+}
+
+
+#dark .main .card:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+#dark .main .result {
+  color: #e3e3e3;
+}
+
+#dark .search-box {
+  background-color: #1e1f20;
+}
+
+#light .search-box .send{
+  color: black;
+}
+
+#dark .search-box input{
+  color: #e3e3e3;
+}
+
+#dark .bottom-info {
+  color: #e3e3e3;
+}
+
+#dark .search-box input::placeholder{
+  color: #e3e3e3;
+}
+
+#dark .sidebar{
+  background-color: #1e1f20;
+}
+
+#dark .sidebar .menu{
+  color: #e3e3e3;
+}
+
+#dark .sidebar .menu:hover{
+  background-color: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+}
+
+#dark .sidebar .new-chat{
+  background-color: #131314;
+}
+
+#dark .sidebar .recent {
+  color: #e3e3e3;
+}
+
+#dark .sidebar .recent-title {
+  color: #e3e3e3;
+}
+
+#dark .sidebar .recent-entry:hover{
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+#light .main{
+  background-color: white;
+}

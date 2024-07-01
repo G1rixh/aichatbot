@@ -2,6 +2,9 @@ import React, { useContext } from "react";
 import "./Main.css";
 import { assets } from "../../assets/assets";
 import { Context } from "../../context/context";
+import ReactSwitch from "react-switch";
+import { ThemeContext } from "../../App";
+import SendIcon from "@mui/icons-material/Send";
 
 const Main = () => {
   const {
@@ -15,16 +18,18 @@ const Main = () => {
     onCardClick
   } = useContext(Context);
 
-   const handleCardClick = (prompt) => {
-     setInput(prompt);
-     onSent(prompt);
-   };
+   const {
+    toggleTheme,
+    theme
+   } = useContext(ThemeContext)
 
   return (
     <div className="main">
       <div className="nav">
-        <p>Gemini</p>
-        <img src={assets.user_icon} alt="" />
+        <div className="switch">
+          <p>{theme === "light" ? "Light Mode" : "Dark Mode"}</p>
+          <ReactSwitch onChange={toggleTheme} checked={theme === "dark"} />
+        </div>
       </div>
 
       <div className="main-container">
@@ -46,7 +51,7 @@ const Main = () => {
                 }
               >
                 <p>Suggest beautiful places to see on an upcoming road trip</p>
-                <img src={assets.compass_icon} alt="" />
+                {/* <img src={assets.compass_icon} alt="" /> */}
               </div>
               <div
                 className="card"
@@ -55,7 +60,7 @@ const Main = () => {
                 }
               >
                 <p>Briefly summarize this concept: urban planning</p>
-                <img src={assets.bulb_icon} alt="" />
+                {/* <img src={assets.bulb_icon} alt="" /> */}
               </div>
               <div
                 className="card"
@@ -66,7 +71,7 @@ const Main = () => {
                 }
               >
                 <p>Brainstorm team bonding activities for our work retreat</p>
-                <img src={assets.message_icon} alt="" />
+                {/* <img src={assets.message_icon} alt="" /> */}
               </div>
               <div
                 className="card"
@@ -75,7 +80,7 @@ const Main = () => {
                 }
               >
                 <p>Tell me about React js and React native</p>
-                <img src={assets.code_icon} alt="" />
+                {/* <img src={assets.code_icon} alt="" /> */}
               </div>
             </div>
           </>
@@ -110,7 +115,7 @@ const Main = () => {
               placeholder="Enter your prompt"
             />
             <div>
-              <img onClick={() => onSent()} src={assets.send_icon} alt="" />
+              <SendIcon className="send" color="primary" onClick={() => onSent()} src={assets.send_icon} alt="" />
             </div>
           </div>
           <p className="bottom-info">
