@@ -84,13 +84,14 @@
 }
 
 .sidebar .bottom-item {
-  padding-right: 10px;
+  margin-right: 10px;
   cursor: pointer;
 }
 
-
-@media (max-width:400px) {
-  .sidebar {
-    display: none;
-  }
+.sidebar .bottom p {
+  margin: 0;
+  margin-top: -29px;
+  margin-left: 60px;
+  flex-grow: 1;
+  text-align: right;
 }

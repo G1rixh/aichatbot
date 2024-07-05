@@ -1,15 +1,18 @@
 import React, { useContext, useState } from 'react'
 import './Sidebar.css'
-import {assets} from '../../assets/assets'
 import { Context } from '../../context/context'
+import { ThemeContext } from "../../App";
 import MenuIcon from "@mui/icons-material/Menu";
 import AddIcon from "@mui/icons-material/Add";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
+import { Switch } from '@mui/material';
 
 
 const Sidebar = () => {
   const [extended, setExtended] = useState(false)
   const{onSent,prevprompts,setRecentPrompt,newChat} = useContext(Context)
+
+  const { toggleTheme, theme } = useContext(ThemeContext);
   
   const loadPrompt = async (prompt) => {
     setRecentPrompt(prompt)
@@ -24,7 +27,7 @@ const Sidebar = () => {
             className="menu"
           />
           <div onClick={() => newChat()} className="new-chat">
-            <AddIcon/>
+            <AddIcon />
             {extended ? <p>New Chat</p> : null}
           </div>
           {extended ? (
@@ -37,7 +40,9 @@ const Sidebar = () => {
                     onClick={() => loadPrompt(item)}
                     className="recent-entry"
                   >
-                    <ChatBubbleOutlineIcon fontSize='small' src={assets.message_icon} alt="" />
+                    <ChatBubbleOutlineIcon
+                      fontSize="small"
+                    />
                     <p>{item.slice(0, 18)}...</p>
                   </div>
                 );
@@ -45,23 +50,18 @@ const Sidebar = () => {
             </div>
           ) : null}
         </div>
-        {/* <div className="bottom">
-           <div className="bottom-item recent-entry">
-            <img src={assets.question_icon} alt="" />
-            {extended ? <p>Help</p> : null}
+        <div className="bottom">
+          <div className="bottom-item">
+            <Switch onChange={toggleTheme} checked={theme === "dark"} />
+            {extended ? (
+              <p>{theme === "light" ? "Dark Mode (off)" : "Dark Mode (on)"}</p>
+            ) : null}
           </div>
-          <div className="bottom-item recent-entry">
-            <img src={assets.history_icon} alt="" />
-            {extended ? <p>Activity</p> : null}
-          </div>
-          <div className="bottom-item recent-entry">
-            
-            {extended ? <p>Settings</p> : null}
-          </div>
-        </div> */}
+        </div>
       </div>
     </div>
   );
 }
 
 export default Sidebar
+

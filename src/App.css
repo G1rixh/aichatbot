@@ -21,6 +21,10 @@
   color: #e3e3e3;
 }
 
+#dark .main .card .icon {
+  color: #e3e3e3;
+}
+
 
 #dark .main .card:hover {
   background-color: rgba(255, 255, 255, 0.08);
@@ -77,6 +81,10 @@
 
 #dark .sidebar .recent-entry:hover{
   background-color: rgba(255, 255, 255, 0.08);
+}
+
+#dark .sidebar .bottom p {
+  color: #e3e3e3;
 }
 
 #light .main{

@@ -2,9 +2,11 @@ import React, { useContext } from "react";
 import "./Main.css";
 import { assets } from "../../assets/assets";
 import { Context } from "../../context/context";
-import ReactSwitch from "react-switch";
-import { ThemeContext } from "../../App";
 import SendIcon from "@mui/icons-material/Send";
+import ExploreIcon from "@mui/icons-material/Explore";
+import TipsAndUpdatesIcon from "@mui/icons-material/TipsAndUpdates";
+import StickyNote2Icon from "@mui/icons-material/StickyNote2";
+import CodeIcon from "@mui/icons-material/Code";
 
 const Main = () => {
   const {
@@ -18,18 +20,11 @@ const Main = () => {
     onCardClick
   } = useContext(Context);
 
-   const {
-    toggleTheme,
-    theme
-   } = useContext(ThemeContext)
 
   return (
     <div className="main">
       <div className="nav">
-        <div className="switch">
-          <p>{theme === "light" ? "Light Mode" : "Dark Mode"}</p>
-          <ReactSwitch onChange={toggleTheme} checked={theme === "dark"} />
-        </div>
+        {/* ADD TITLE */}
       </div>
 
       <div className="main-container">
@@ -51,16 +46,16 @@ const Main = () => {
                 }
               >
                 <p>Suggest beautiful places to see on an upcoming road trip</p>
-                {/* <img src={assets.compass_icon} alt="" /> */}
+                <ExploreIcon className="icon" />
               </div>
               <div
                 className="card"
                 onClick={() =>
-                  onCardClick("Briefly summarize this concept: urban planning")
+                  onCardClick("Briefly summarize this concept: HTTPS networking")
                 }
               >
-                <p>Briefly summarize this concept: urban planning</p>
-                {/* <img src={assets.bulb_icon} alt="" /> */}
+                <p>Briefly summarize this concept: HTTPS networking</p>
+                <TipsAndUpdatesIcon className="icon" />
               </div>
               <div
                 className="card"
@@ -71,16 +66,20 @@ const Main = () => {
                 }
               >
                 <p>Brainstorm team bonding activities for our work retreat</p>
-                {/* <img src={assets.message_icon} alt="" /> */}
+                <StickyNote2Icon className="icon" />
               </div>
               <div
                 className="card"
                 onClick={() =>
-                  onCardClick("Tell me about React js and React native")
+                  onCardClick(
+                    "Write a javascript program to calculate factorial of a number"
+                  )
                 }
               >
-                <p>Tell me about React js and React native</p>
-                {/* <img src={assets.code_icon} alt="" /> */}
+                <p>
+                  Write a javascript program to calculate factorial of a number
+                </p>
+                <CodeIcon className="icon"/>
               </div>
             </div>
           </>
@@ -115,12 +114,18 @@ const Main = () => {
               placeholder="Enter your prompt"
             />
             <div>
-              <SendIcon className="send" color="primary" onClick={() => onSent()} src={assets.send_icon} alt="" />
+              <SendIcon
+                className="send"
+                color="primary"
+                onClick={() => onSent()}
+                src={assets.send_icon}
+                alt=""
+              />
             </div>
           </div>
           <p className="bottom-info">
-            Gemini may display inaccurate info, including about people, so
-            double-check its responses. Your privacy and Gemini Apps
+            AI may display inaccurate info, including about people, so
+            double-check its responses. Your privacy and other.
           </p>
         </div>
       </div>
